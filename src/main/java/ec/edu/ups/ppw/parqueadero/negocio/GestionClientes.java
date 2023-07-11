@@ -1,9 +1,12 @@
 package ec.edu.ups.ppw.parqueadero.negocio;
 
+import java.util.List;
+
 import ec.edu.ups.ppw.parqueadero.dao.ClienteDAO;
 import ec.edu.ups.ppw.parqueadero.modelo.Cliente;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
+import jakarta.persistence.Query;
 
 @Stateless
 public class GestionClientes {
@@ -12,7 +15,10 @@ public class GestionClientes {
 	private ClienteDAO daoCliente;
 	
 	public void guardarClientes(Cliente cliente) throws Exception {
-		if(!this.isCedulaValida(cliente.getCedulaCliente()))
+		
+		daoCliente.insert(cliente);
+		
+		/*if(!this.isCedulaValida(cliente.getCedulaCliente()))
 			throw new Exception("Cedula incorrecta");
 		
 		if(daoCliente.read(cliente.getCedulaCliente()) == null) {
@@ -27,15 +33,19 @@ public class GestionClientes {
 			}catch(Exception e) {
 				throw new Exception("Error al actualizar: " + e.getMessage());
 			}
-		}
+		}*/
 	}
 	
 	private boolean isCedulaValida(String cedula) {
 		return cedula.length() == 10;
 	}
-	
+	/*
 	public void guardarClientes(String cedula, String nombre, String direccion) {
 		
 	}
+	*/
 	
+	public List<Cliente> getAll(){
+		return daoCliente.getAll();
+	}
 }

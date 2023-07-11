@@ -1,5 +1,7 @@
 package ec.edu.ups.ppw.parqueadero.servicios;
 
+import java.util.List;
+
 import ec.edu.ups.ppw.parqueadero.modelo.Cliente;
 import ec.edu.ups.ppw.parqueadero.modelo.Parqueadero;
 import ec.edu.ups.ppw.parqueadero.negocio.GestionClientes;
@@ -73,5 +75,13 @@ public class GClientesService {
 			error.setMensaje("Error al guardar:" + e.getMessage());
 			return Response.status(Response.Status.OK).entity(error).build();
 		}	
+	}
+	
+	@GET
+	@Path("/listarClientes")
+	@Produces("application/json")
+	public List<Cliente> getAll(){
+		
+		return gClientes.getAll();
 	}
 }

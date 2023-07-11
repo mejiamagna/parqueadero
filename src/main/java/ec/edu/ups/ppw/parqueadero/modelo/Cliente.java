@@ -16,7 +16,7 @@ import jakarta.persistence.OneToOne;
 public class Cliente implements Serializable {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="cli_codigo")
 	private int idCliente;
 	
