@@ -15,13 +15,20 @@ import jakarta.persistence.OneToMany;
 public class Parqueadero implements Serializable {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_parqueadero")
 	private int idParqueadero;
 	
+	@Column(name="parq_nombre")
 	private String nombre;
+	
+	@Column(name="parq_direccion")
 	private String direccion;
+	
+	@Column(name="parq_telefono")
 	private String telefono;
+	
+	@Column(name="parq_espacios")
 	private int espacios;
 	
 	/*
@@ -64,6 +71,13 @@ public class Parqueadero implements Serializable {
 	}
 	public void setEspacios(int espacios) {
 		this.espacios = espacios;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Parqueadero [idParqueadero=" + idParqueadero + ", nombre=" + nombre + ", direccion=" + direccion
+				+ ", telefono=" + telefono + ", espacios=" + espacios + "]";
 	}
 	
 }

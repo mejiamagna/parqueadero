@@ -2,7 +2,6 @@ package ec.edu.ups.ppw.parqueadero.servicios;
 
 import java.util.List;
 
-import ec.edu.ups.ppw.parqueadero.modelo.Cliente;
 import ec.edu.ups.ppw.parqueadero.modelo.Parqueadero;
 import ec.edu.ups.ppw.parqueadero.negocio.GestionParqueadero;
 import jakarta.inject.Inject;

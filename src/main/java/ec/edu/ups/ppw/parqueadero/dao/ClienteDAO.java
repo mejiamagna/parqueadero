@@ -27,13 +27,14 @@ public class ClienteDAO implements Serializable{
 		em.merge(cliente);
 	}
 	
-	public Cliente read(String cedula) {
-		Cliente c = em.find(Cliente.class, cedula);
+	public Cliente read(int id) {
+		Cliente c = em.find(Cliente.class, id);
+		System.out.println("cli " + c);
 		return c;
 	}
 	
-	public void delete(String cedula) {
-		Cliente c = em.find(Cliente.class, cedula);
+	public void delete(int id) {
+		Cliente c = em.find(Cliente.class, id);
 		em.remove(c);
 	}
 	

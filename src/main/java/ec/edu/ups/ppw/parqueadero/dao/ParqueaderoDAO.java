@@ -27,15 +27,17 @@ public class ParqueaderoDAO implements Serializable {
 		em.merge(parqueadero);
 	}
 	
-	public Parqueadero read(String cedula) {
-		Parqueadero p = em.find(Parqueadero.class, cedula);
+	
+	public Parqueadero read(int idParqueadero) {
+		Parqueadero p = em.find(Parqueadero.class, idParqueadero);
 		return p;
 	}
 	
-	public void delete(String cedula) {
-		Parqueadero p = em.find(Parqueadero.class, cedula);
+	public void delete(int idParqueadero) {
+		Parqueadero p = em.find(Parqueadero.class, idParqueadero);
 		em.remove(p);
 	}
+	
 	
 	public List<Parqueadero> getAll(){
 		String jpql = "SELECT p FROM Parqueadero p";
