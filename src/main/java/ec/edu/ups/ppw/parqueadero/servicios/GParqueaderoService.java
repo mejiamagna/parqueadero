@@ -1,5 +1,8 @@
 package ec.edu.ups.ppw.parqueadero.servicios;
 
+import java.util.List;
+
+import ec.edu.ups.ppw.parqueadero.modelo.Cliente;
 import ec.edu.ups.ppw.parqueadero.modelo.Parqueadero;
 import ec.edu.ups.ppw.parqueadero.negocio.GestionParqueadero;
 import jakarta.inject.Inject;
@@ -29,12 +32,12 @@ public class GParqueaderoService {
 		return p;
 	}
 	
-	/*
+	
 	@POST
 	@Produces("application/json")
 	@Consumes("application/json")
 	public Response guardarParqueadero(Parqueadero parqueadero) {
-		try {i
+		try {
 			gParqueadero.guardarParqueadero(parqueadero);
 			return Response.status(Response.Status.OK).entity(parqueadero).build();
 					
@@ -46,5 +49,13 @@ public class GParqueaderoService {
 			return Response.status(Response.Status.OK).entity(error).build();
 		}	
 	}
-	*/
+	
+	@GET
+	@Path("/listarParqueadero")
+	@Produces("application/json")
+	public List<Parqueadero> getAll(){
+		
+		return gParqueadero.getAll();
+	}
+	
 }
