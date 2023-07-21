@@ -16,7 +16,24 @@ public class GestionParqueadero {
 	
 	public void guardarParqueadero(Parqueadero parqueadero) throws Exception {
 		
-		daoParqueadero.insert(parqueadero);
+		//daoParqueadero.insert(parqueadero);
+		
+		
+		if(daoParqueadero.read(parqueadero.getIdParqueadero()) == null) {
+			try {
+				daoParqueadero.insert(parqueadero);
+			}catch(Exception e) {
+				e.printStackTrace();
+				throw new Exception("Error al insertar: " + e.getMessage());
+			}
+		}else {
+			try {
+				daoParqueadero.update(parqueadero);
+			}catch(Exception e) {
+				e.printStackTrace();
+				throw new Exception("Error al actualizar: " + e.getMessage());
+			}
+		}
 		
 	}
 	

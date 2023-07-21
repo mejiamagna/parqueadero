@@ -52,4 +52,10 @@ public class GestionClientes {
 	public List<Cliente> getAll(){
 		return daoCliente.getAll();
 	}
+	
+	/*
+	public List name getCliente() {
+		
+	}
+	*/
 }

@@ -84,4 +84,11 @@ public class GClientesService {
 		
 		return gClientes.getAll();
 	}
+	
+	/*
+	public Response getClientes() {
+		List<Cliente> listado = gClientes.getClientes();
+		return Response.status(Response.Status.OK).entity(listado);
+	}
+	*/
 }
